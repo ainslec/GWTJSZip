@@ -9,7 +9,7 @@
 	<packaging>gwt-lib</packaging>
 
 	<name>gwt-jszip</name>
-	<url>http://consoli.org</url>
+	<url>http://ainslec.org</url>
 	<description>gwt-jszip (based on jszipgwt by Aki Miyazaki / MIT License)</description>
 	<properties>
 		<gwt.version>2.8.2</gwt.version>
@@ -26,8 +26,7 @@
 				<artifactId>gwt-maven-plugin</artifactId>
 				<configuration>
 					<skipModule>true</skipModule>
-					<moduleName>io.myrion.ide.web.BasicEditor</moduleName>
-					<!-- <moduleName>io.myrion.ide.web.BasicEditor</moduleName> <moduleName>io.myrion.ide.web.DeluxeEditor</moduleName> -->
+					<moduleName>anything</moduleName>
 				</configuration>
 				<extensions>true</extensions>
 			</plugin>
