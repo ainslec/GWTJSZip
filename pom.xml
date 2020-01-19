@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>org.ainslec</groupId>
+	<artifactId>gwt-jszip</artifactId>
+	<version>1.0.0</version>
+	<packaging>gwt-lib</packaging>
+
+	<name>gwt-jszip</name>
+	<url>http://consoli.org</url>
+	<description>gwt-jszip (based on jszipgwt by Aki Miyazaki / MIT License)</description>
+	<properties>
+		<gwt.version>2.8.2</gwt.version>
+		<maven.compiler.source>1.8</maven.compiler.source>
+		<maven.compiler.target>1.8</maven.compiler.target>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+	</properties>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>net.ltgt.gwt.maven</groupId>
+				<artifactId>gwt-maven-plugin</artifactId>
+				<configuration>
+					<skipModule>true</skipModule>
+					<moduleName>io.myrion.ide.web.BasicEditor</moduleName>
+					<!-- <moduleName>io.myrion.ide.web.BasicEditor</moduleName> <moduleName>io.myrion.ide.web.DeluxeEditor</moduleName> -->
+				</configuration>
+				<extensions>true</extensions>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<configuration>
+					<source>1.8</source>
+					<target>1.8</target>
+				</configuration>
+			</plugin>
+
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-javadoc-plugin</artifactId>
+				<version>2.9</version>
+			  <configuration>
+				<useStandardDocletOptions>false</useStandardDocletOptions>				
+				<additionalparam>-Xdoclint:none</additionalparam>
+			  </configuration>
+				<executions>
+					<execution>
+						<id>attach-javadocs</id>
+						<goals>
+							<goal>jar</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-source-plugin</artifactId>
+				<version>3.0.1</version>
+				<executions>
+					<execution>
+						<id>attach-sources</id>
+						<phase>package</phase>
+						<goals>
+							<goal>jar-no-fork</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>build-helper-maven-plugin</artifactId>
+				<version>1.1</version>
+				<executions>
+					<execution>
+						<id>add-source</id>
+						<phase>generate-sources</phase>
+						<goals>
+							<goal>add-source</goal>
+						</goals>
+						<configuration>
+							<sources>
+								<source>src/main/resources</source>
+								<source>src-gen/main/java</source>
+							</sources>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+
+		</plugins>
+
+		<pluginManagement>
+			<plugins>
+				<!--This plugin's configuration is used to store Eclipse m2e settings 
+					only. It has no influence on the Maven build itself. -->
+				<plugin>
+					<groupId>org.eclipse.m2e</groupId>
+					<artifactId>lifecycle-mapping</artifactId>
+					<version>1.0.0</version>
+					<configuration>
+						<lifecycleMappingMetadata>
+							<pluginExecutions>
+								<pluginExecution>
+									<pluginExecutionFilter>
+										<groupId>
+											org.codehaus.mojo
+										</groupId>
+										<artifactId>
+											build-helper-maven-plugin
+										</artifactId>
+										<versionRange>
+											[1.1,)
+										</versionRange>
+										<goals>
+											<goal>add-source</goal>
+										</goals>
+									</pluginExecutionFilter>
+									<action>
+										<ignore />
+									</action>
+								</pluginExecution>
+							</pluginExecutions>
+						</lifecycleMappingMetadata>
+					</configuration>
+				</plugin>
+			</plugins>
+		</pluginManagement>
+	</build>
+	<developers>
+		<developer>
+			<id>akjava</id>
+			<name>Aki Miyazaki</name>
+			<roles>
+			<role>developer</role>
+			</roles>
+		</developer>
+		<developer>
+			<id>ainsleyc</id>
+			<name>Chris Ainsley</name>
+         <roles>
+         <role>forker</role>
+         </roles>
+			<email>chris.ainsley@consoli-ltd.com</email>
+		</developer>
+	</developers>
+
+	<inceptionYear>2020</inceptionYear>
+
+	<licenses>
+		<license>
+			<name>Apache License, Version 2.0</name>
+			<url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+			<comments>Original JSZip is dual licensed MIT / GPL version 3 license and Copyright (c) 2009-2016 Stuart Knightley, David Duponchel, Franz Buchinger, António Afonso.</comments>
+		</license>
+	</licenses>
+
+	<dependencies>
+		<!--GWT Dependencies -->
+		<dependency>
+			<groupId>com.google.gwt</groupId>
+			<artifactId>gwt-user</artifactId>
+			<version>2.8.2</version>
+		</dependency>
+	</dependencies>
+
+
+   <scm>
+      <url>https://github.com/ainslec/GWTJSZip/tree/master</url>
+      <connection>scm:git:git://github.com/GWTJSZip.git</connection>
+      <developerConnection>scm:git:ssh://github.com/ainslec/GWTJSZip.git</developerConnection>
+      <tag>HEAD</tag>
+   </scm>
+   <distributionManagement>
+
+      <snapshotRepository>
+         <id>ossrh</id>
+         <url>https://oss.sonatype.org/content/repositories/snapshots</url>
+      </snapshotRepository>
+
+      <repository>
+         <id>ossrh</id>
+         <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+      </repository>
+
+   </distributionManagement>
+
+</project>
